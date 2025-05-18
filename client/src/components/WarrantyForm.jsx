@@ -1,5 +1,5 @@
 import { useState } from "react";
-import API from "../axios";
+import API from "../../axios";
 
 export default function WarrantyForm({ onAdd }) {
   const [form, setForm] = useState({
