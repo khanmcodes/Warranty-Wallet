@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const authRoutes = require("./routes/authRoutes")
+const warrantyRoutes = require("./routes/warrantyRoutes")
 require("dotenv").config()
 
 const app = express()
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((err) => console.log(err))
 
 app.use("/api/auth", authRoutes);
+app.use("/api/warranties", warrantyRoutes);
 
 app.get("/", (req, res) => {
     res.send("WW Backend is running")
