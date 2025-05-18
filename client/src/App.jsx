@@ -10,10 +10,19 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if the user is authenticated by making a request to the /auth/me endpoint
     const checkAuth = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setIsLoggedIn(false);
+        setLoading(false);
+        return;
+      }
       try {
-        await API.get("/auth/me");
+        await API.get("/auth/me", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
         setIsLoggedIn(true);
       } catch {
         setIsLoggedIn(false);
