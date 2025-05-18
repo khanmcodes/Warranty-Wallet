@@ -11,10 +11,10 @@ export default function Signup() {
   const handleSignup = async () => {
     try {
       await API.post("/auth/signup", { name, email, password });
-      alert("Signup successful ✅");
+      alert("Signup successful! Please login with your new account.");
       navigate("/login");
     } catch (err) {
-      alert("Signup failed ❌" + err);
+      alert("Signup failed: " + (err.response?.data?.message || err.message));
     }
   };
 
@@ -25,6 +25,7 @@ export default function Signup() {
       <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} className="input mb-2" />
       <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="input mb-4" />
       <button onClick={handleSignup} className="btn">Signup</button>
+      <p className="mt-2">Already have an account? <button onClick={() => navigate("/login")} className="text-blue-500">Login</button></p>
     </div>
   );
 }

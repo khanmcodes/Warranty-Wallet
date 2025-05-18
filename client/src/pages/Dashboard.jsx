@@ -13,7 +13,12 @@ export default function Dashboard() {
       .catch(() => setUser(null));
 
     const fetchWarranties = async () => {
-      const res = await API.get("/warranties");
+      const token = localStorage.getItem('token');
+      const res = await API.get("/warranties", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       setWarranties(res.data);
     };
     fetchWarranties();
@@ -35,8 +40,13 @@ export default function Dashboard() {
       <WarrantyList warranties={warranties} onDelete={handleDelete} />
       <button
         onClick={() => {
-          document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-          window.location.href = "/login";
+          API.post("/auth/logout")
+            .then(() => {
+              window.location.href = "/login";
+            })
+            .catch(err => {
+              console.error("Logout failed:", err);
+            });
         }}
         className="absolute top-4 right-4 text-red-500 font-bold"
       >

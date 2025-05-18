@@ -29,7 +29,7 @@ router.delete("/:id", protect, async (req, res) => {
   if (warranty.user.toString() !== req.user._id.toString())
     return res.status(401).json({ message: "Not authorized" });
 
-  await warranty.remove();
+  await warranty.deleteOne();
   res.json({ message: "Deleted" });
 });
 

@@ -2,7 +2,11 @@ import API from "../../axios";
 
 export default function WarrantyList({ warranties, onDelete }) {
   const handleDelete = async (id) => {
-    await API.delete(`/warranties/${id}`);
+    await API.delete(`/warranties/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
     onDelete(id);
   };
 

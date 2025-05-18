@@ -11,3 +11,7 @@ export const login = async (email, password) => {
 export const getUser = async () => {
   return axios.get("/auth/me");
 };
+
+export const logout = async () => {
+  return axios.post("/auth/logout");
+};

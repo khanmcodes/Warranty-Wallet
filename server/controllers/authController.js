@@ -65,3 +65,12 @@ exports.login = async (req, res) => {
       res.status(401).json({ message: "Invalid token" });
     }
   };
+
+  exports.logout = async (req, res) => {
+    res.clearCookie("token", {
+      httpOnly: true,
+      sameSite: "Lax",
+      secure: false,
+    });
+    res.json({ message: "Logged out successfully" });
+  };

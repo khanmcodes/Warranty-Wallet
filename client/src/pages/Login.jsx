@@ -2,18 +2,19 @@ import { useState } from "react";
 import API from "../../axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      await API.post("/auth/login", { email, password });
-      alert("Login successful ✅");
+      const response = await API.post("/auth/login", { email, password });
+      setIsLoggedIn(true);
+      localStorage.setItem('token', response.data.token);
       navigate("/dashboard");
     } catch (err) {
-      alert("Login failed ❌" + err);
+      alert("Login failed: " + (err.response?.data?.message || err.message));
     }
   };
 
