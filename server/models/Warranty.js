@@ -6,6 +6,7 @@ const warrantySchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  productImageUrl: String,
   productName: {
     type: String,
     required: true,
