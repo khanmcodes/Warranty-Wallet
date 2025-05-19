@@ -12,10 +12,7 @@ export default function LandingPage({ isLoggedIn }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
               <Link to="/" className="flex items-center">
-                <img src={logo} alt="Warranty Wallet Logo" className="h-10 w-10 mr-2" />
-                <span className="font-sans font-bold text-3xl text-white">
-                  W
-                </span>
+                <img src={logo} alt="Warranty Wallet Logo" className="h-10 w-10" />
                 <span className="font-sans font-thin text-3xl text-white">
                   AULT
                 </span>
@@ -216,10 +213,7 @@ export default function LandingPage({ isLoggedIn }) {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
             <Link to="/" className="flex items-center">
-                <img src={logo} alt="Warranty Wallet Logo" className="h-20 w-20 mr-2" />
-                <span className="font-sans font-bold text-6xl text-white">
-                  W
-                </span>
+                <img src={logo} alt="Warranty Wallet Logo" className="h-20 w-20" />
                 <span className="font-sans font-thin text-6xl text-white">
                   AULT
                 </span>
