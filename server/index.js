@@ -11,7 +11,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://warranty-wallet.vercel.app",
     credentials: true
 }))
 
@@ -26,4 +26,5 @@ app.get("/", (req, res) => {
     res.send("WW Backend is running")
 })
 
-app.listen(5000, () => console.log("Server is running on port 5000"))
+// app.listen(5000, () => console.log("Server is running on port 5000"))
+app.listen(process.env.PORT, () => console.log(`Server is running on port ${process.env.PORT}`))
