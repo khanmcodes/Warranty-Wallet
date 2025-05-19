@@ -3,6 +3,8 @@ import API from "../../axios";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FaArrowLeft } from "react-icons/fa6";
+import Loader from "../components/Loader";
+
 export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -193,7 +195,7 @@ export default function Signup() {
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
-                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white mr-2"></div>
+                  <Loader />
                   <span>Creating account...</span>
                 </div>
               ) : (

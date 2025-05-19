@@ -3,6 +3,7 @@ import API from "../../axios";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FaArrowLeft } from "react-icons/fa6";
+import Loader from "../components/Loader";
 
 export default function Login({ setIsLoggedIn }) {
   const [email, setEmail] = useState("");
@@ -184,7 +185,7 @@ export default function Login({ setIsLoggedIn }) {
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
-                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white mr-2"></div>
+                  <Loader />
                   <span>Signing in...</span>
                 </div>
               ) : (

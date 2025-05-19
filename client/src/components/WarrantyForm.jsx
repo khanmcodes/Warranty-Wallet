@@ -295,7 +295,7 @@ export default function WarrantyForm({ onAdd, onCancel }) {
           )}
           <button 
             type="submit" 
-            className="px-4 py-2 bg-gradient-primary text-[#1e293b] rounded-md hover:shadow-glow-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
+            className="px-4 py-2 bg-gradient-primary text-white rounded-md hover:shadow-glow-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Adding...' : 'Add Warranty'}

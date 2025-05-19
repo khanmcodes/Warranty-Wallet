@@ -5,6 +5,7 @@ import WarrantyList from "../components/WarrantyList";
 import Dock from "../components/Dock";
 import { FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/logo.png";
+import Loader from "../components/Loader"; 
 
 export default function Dashboard() {
   const [warranties, setWarranties] = useState([]);
@@ -12,7 +13,7 @@ export default function Dashboard() {
   const [logoutConfirmModal, setLogoutConfirmModal] = useState(false);
   const [user, setUser] = useState(null);
   const [showAddForm, setShowAddForm] = useState(false);
-  const [activeFilter, setActiveFilter] = useState("valid");
+  const [activeFilter, setActiveFilter] = useState('all');
   const [filters, setFilters] = useState({
     search: "",
     status: "valid",
@@ -148,7 +149,7 @@ export default function Dashboard() {
   };
 
   const handleShowAllClick = () => {
-    setFilters({ ...filters, status: "all" });
+    setFilters({ ...filters, status: "valid" });
     setActiveFilter("all");
     setShowAddForm(false);
   };
@@ -195,9 +196,7 @@ export default function Dashboard() {
         <main>
           {isLoading ? (
             <div className="flex items-center justify-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-2 border-primary flex items-center justify-center">
-                <img src={logo} alt="logo" className="w-7 h-7" />
-              </div>
+              <Loader/>
             </div>
           ) : showAddForm ? (
             <WarrantyForm
@@ -226,7 +225,7 @@ export default function Dashboard() {
                         </span>
                       )}
                     </h2>
-                    {activeFilter === "valid" && filters.status !== "expiring" && (
+                    {activeFilter === "all" && filters.status !== "expiring" && (
                       <div className="flex gap-2">
                         <button
                           onClick={() => {

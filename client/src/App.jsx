@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
 import { useState, useEffect } from "react";
 import API from "../axios";
+import Loader from "./components/Loader";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,7 +39,7 @@ function App() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-darkBg-900">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary shadow-glow-primary"></div>
+        <Loader />
       </div>
     );
   }
