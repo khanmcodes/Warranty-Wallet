@@ -4,6 +4,8 @@ import { FaPlus, FaReceipt, FaFilter, FaMobileAlt } from "react-icons/fa";
 import { FaBarsProgress } from "react-icons/fa6";
 import { RxLapTimer } from "react-icons/rx";
 import ShinyText from "../components/ShinyText";
+import dashboardScreenshot from "../assets/dashboardss.png";
+import wallpaper from "../assets/wallpaper.jpg"
 
 export default function LandingPage({ isLoggedIn }) {
   return (
@@ -11,12 +13,16 @@ export default function LandingPage({ isLoggedIn }) {
       <nav className="border-b border-borderColor/30 backdrop-blur-md bg-darkBg-900/70 fixed w-full z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
-              <Link to="/" className="flex items-center">
-                <img src={logo} alt="Warranty Wallet Logo" className="h-10 w-10" />
-                <span className="font-sans font-thin text-3xl text-white">
-                  AULT
-                </span>
-              </Link>
+            <Link to="/" className="flex items-center">
+              <img
+                src={logo}
+                alt="Warranty Wallet Logo"
+                className="h-10 w-10"
+              />
+              <span className="font-sans font-thin text-3xl text-white">
+                AULT
+              </span>
+            </Link>
             <div className="flex items-center">
               {isLoggedIn ? (
                 <Link
@@ -51,10 +57,14 @@ export default function LandingPage({ isLoggedIn }) {
           <div className="space-y-7">
             <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold">
               <span className="block">Never lose track of your</span>
-              <span className="text-transparent bg-clip-text bg-gradient-primary">warranties again</span>
+              <span className="text-transparent bg-clip-text bg-gradient-primary">
+                warranties again
+              </span>
             </h1>
             <p className="text-xl text-gray-400 max-w-2xl">
-              Wault is a vault for your warranties. It helps you organize, track, and get reminded about your product warranties in one secure place.
+              Wault is a vault for your warranties. It helps you organize,
+              track, and get reminded about your product warranties in one
+              secure place.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -67,7 +77,7 @@ export default function LandingPage({ isLoggedIn }) {
                 href="#features"
                 className="py-3 px-6 rounded-full border border-borderColor text-white hover:bg-darkBg-700 transition-all text-center"
               >
-                <ShinyText text="Learn More"/>
+                <ShinyText text="Learn More" />
               </a>
             </div>
           </div>
@@ -79,27 +89,33 @@ export default function LandingPage({ isLoggedIn }) {
                   <h3 className="text-lg font-semibold">Your Warranties</h3>
                 </div>
                 <div className="p-5 space-y-4">
-                <div className="p-4 rounded-xl bg-darkBg-800/50 border border-borderColor flex justify-between items-center">
+                  <div className="p-4 rounded-xl bg-darkBg-800/50 border border-borderColor flex justify-between items-center">
                     <div>
                       <h4 className="font-semibold">Macbook</h4>
-                      <p className="text-sm text-gray-400">Expires in 10 months</p>
+                      <p className="text-sm text-gray-400">
+                        Expires in 10 months
+                      </p>
                     </div>
                     <div className={`w-2 h-8 rounded-full bg-green-500`}></div>
-                </div>
-                <div className="p-4 rounded-xl bg-darkBg-800/50 border border-borderColor flex justify-between items-center">
+                  </div>
+                  <div className="p-4 rounded-xl bg-darkBg-800/50 border border-borderColor flex justify-between items-center">
                     <div>
                       <h4 className="font-semibold">iPhone 13</h4>
-                      <p className="text-sm text-gray-400">Expires in 3 months</p>
+                      <p className="text-sm text-gray-400">
+                        Expires in 3 months
+                      </p>
                     </div>
                     <div className={`w-2 h-8 rounded-full bg-yellow-500`}></div>
-                </div>
-                <div className="p-4 rounded-xl bg-darkBg-800/50 border border-borderColor flex justify-between items-center">
+                  </div>
+                  <div className="p-4 rounded-xl bg-darkBg-800/50 border border-borderColor flex justify-between items-center">
                     <div>
                       <h4 className="font-semibold">Smart TV</h4>
-                      <p className="text-sm text-gray-400">Expired 2 months ago</p>
+                      <p className="text-sm text-gray-400">
+                        Expired 2 months ago
+                      </p>
                     </div>
                     <div className={`w-2 h-8 rounded-full bg-red-500`}></div>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -111,24 +127,23 @@ export default function LandingPage({ isLoggedIn }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-white">
-                Features
-              </span>
+              <span className="text-white">Features</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Warranty Wallet makes managing your product warranties simple and stress-free
+              Warranty Wallet makes managing your product warranties simple and
+              stress-free
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
             <div className="bg-darkBg-900/50 backdrop-blur-sm p-6 rounded-xl border border-borderColor shadow-dark">
               <div className="bg-gradient-accent h-12 w-12 rounded-full flex items-center justify-center mb-4 shadow-glow-primary">
                 <FaPlus className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">Easy Organization</h3>
               <p className="text-gray-400">
-                Add, categorize, and access all your warranty information in one organized place.
+                Add, categorize, and access all your warranty information in one
+                organized place.
               </p>
             </div>
 
@@ -138,7 +153,8 @@ export default function LandingPage({ isLoggedIn }) {
               </div>
               <h3 className="text-xl font-bold mb-2">Expiry Tracking</h3>
               <p className="text-gray-400">
-                Never miss an expiry date with visual indicators for expiring and expired warranties.
+                Never miss an expiry date with visual indicators for expiring
+                and expired warranties.
               </p>
             </div>
 
@@ -148,7 +164,8 @@ export default function LandingPage({ isLoggedIn }) {
               </div>
               <h3 className="text-xl font-bold mb-2">Receipt Storage</h3>
               <p className="text-gray-400">
-                Store receipt images directly with each warranty for easy access when needed.
+                Store receipt images directly with each warranty for easy access
+                when needed.
               </p>
             </div>
 
@@ -158,7 +175,8 @@ export default function LandingPage({ isLoggedIn }) {
               </div>
               <h3 className="text-xl font-bold mb-2">Status Visualization</h3>
               <p className="text-gray-400">
-                Visual progress bars show how much of your warranty period has been used.
+                Visual progress bars show how much of your warranty period has
+                been used.
               </p>
             </div>
 
@@ -168,7 +186,8 @@ export default function LandingPage({ isLoggedIn }) {
               </div>
               <h3 className="text-xl font-bold mb-2">Smart Filtering</h3>
               <p className="text-gray-400">
-                Easily filter your warranties by status, expiration date, or product type.
+                Easily filter your warranties by status, expiration date, or
+                product type.
               </p>
             </div>
 
@@ -178,7 +197,8 @@ export default function LandingPage({ isLoggedIn }) {
               </div>
               <h3 className="text-xl font-bold mb-2">Mobile Friendly</h3>
               <p className="text-gray-400">
-                Access your warranty information on any device, anytime, anywhere.
+                Access your warranty information on any device, anytime,
+                anywhere.
               </p>
             </div>
           </div>
@@ -193,7 +213,11 @@ export default function LandingPage({ isLoggedIn }) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-medium mb-3">
-              Create your <span className="text-gradient-primary font-thin"><span className="font-bold">W</span>AULT</span> now!
+              Create your{" "}
+              <span className="text-gradient-primary font-thin">
+                <span className="font-bold">W</span>AULT
+              </span>{" "}
+              now!
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10">
               Start managing your warranties today
@@ -208,12 +232,34 @@ export default function LandingPage({ isLoggedIn }) {
         </div>
       </section>
 
-      <footer className="bg-darkBg-900 border-t border-borderColor/30 py-12">
+      <section className="py-20 relative hidden lg:block">
+        <img src={wallpaper} alt="Wallpaper" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="max-w-[60vw] mx-auto rounded-lg shadow-[0_4px_50px_rgba(0,0,0,0.9)] bg-darkBg-900/50 backdrop-blur-sm">
+          <div className="h-8 rounded-t-lg w-full bg-[#2c2c2c]">
+            <div className="flex items-center h-full gap-1 px-4">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+          </div>
+          <img
+            src={dashboardScreenshot}
+            alt="Warranty"
+            className="w-full h-auto rounded-b-lg"
+          />
+        </div>
+      </section>
+
+      <footer className="bg-darkBg-900 border-t border-darkBg-600 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-            <Link to="/" className="flex items-center">
-                <img src={logo} alt="Warranty Wallet Logo" className="h-20 w-20" />
+              <Link to="/" className="flex items-center">
+                <img
+                  src={logo}
+                  alt="Warranty Wallet Logo"
+                  className="h-20 w-20"
+                />
                 <span className="font-sans font-thin text-6xl text-white">
                   AULT
                 </span>
@@ -227,4 +273,4 @@ export default function LandingPage({ isLoggedIn }) {
       </footer>
     </div>
   );
-} 
+}
