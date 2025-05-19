@@ -23,11 +23,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await API.get("/auth/me", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const res = await API.get("/auth/me");
         setUser(res.data.user);
       } catch (error) {
         console.error("Failed to fetch user:", error);
@@ -39,11 +35,7 @@ export default function Dashboard() {
     const fetchWarranties = async () => {
       try {
         setIsLoading(true);
-        const res = await API.get("/warranties", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const res = await API.get("/warranties");
         setWarranties(res.data);
         setFilteredWarranties(res.data);
       } catch (error) {

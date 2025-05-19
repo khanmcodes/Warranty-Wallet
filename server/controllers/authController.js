@@ -43,19 +43,23 @@ exports.login = async (req, res) => {
 
       res.cookie("token", token, {
         httpOnly: true,
-        sameSite: "Lax",
-        secure: false
+        sameSite: "none",
+        secure: true,
+        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
       });
   
-      res.json({ user: { name: user.name, email: user.email } });
+      res.json({ 
+        user: { name: user.name, email: user.email },
+        token // Send token in response for client-side storage
+      });
     } catch (err) {
       res.status(500).json({ message: "Login failed", error: err.message });
     }
-  };
+};
 
-  exports.me = async (req, res) => {
+exports.me = async (req, res) => {
     try {
-      const token = req.cookies.token;
+      const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
       if (!token) return res.status(401).json({ message: "Unauthorized" });
   
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -64,9 +68,9 @@ exports.login = async (req, res) => {
     } catch (err) {
       res.status(401).json({ message: "Invalid token" });
     }
-  };
+};
 
-  exports.logout = async (req, res) => {
+exports.logout = async (req, res) => {
     res.clearCookie("token", {
       httpOnly: true,
       sameSite: "Lax",

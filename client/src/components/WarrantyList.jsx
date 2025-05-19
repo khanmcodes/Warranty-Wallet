@@ -5,7 +5,6 @@ export default function WarrantyList({ warranties, onDelete }) {
   const [selectedWarranty, setSelectedWarranty] = useState(null);
   const modalRef = useRef(null);
 
-  // Close modal when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -39,7 +38,6 @@ export default function WarrantyList({ warranties, onDelete }) {
     }
   };
 
-  // Calculate days remaining until expiry
   const getDaysRemaining = (purchaseDate, durationMonths) => {
     const expiryDate = new Date(purchaseDate);
     expiryDate.setMonth(expiryDate.getMonth() + durationMonths);
@@ -51,7 +49,6 @@ export default function WarrantyList({ warranties, onDelete }) {
     return diffDays;
   };
 
-  // Calculate percentage of warranty used
   const getWarrantyProgressPercent = (purchaseDate, durationMonths) => {
     const startDate = new Date(purchaseDate);
     const expiryDate = new Date(purchaseDate);
@@ -59,24 +56,19 @@ export default function WarrantyList({ warranties, onDelete }) {
     
     const now = new Date();
     
-    // Total duration in milliseconds
     const totalDuration = expiryDate - startDate;
-    // Time elapsed in milliseconds
     const timeElapsed = now - startDate;
     
-    // Calculate percentage used (0-100)
     const percentUsed = Math.min(100, Math.max(0, (timeElapsed / totalDuration) * 100));
     
     return percentUsed;
   };
 
-  // Format date to be more readable
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  // Format days remaining/overdue for better readability
   const formatDaysRemaining = (days) => {
     if (days === 0) return "Expires today";
     if (days === 1) return "Expires tomorrow";
@@ -127,7 +119,6 @@ export default function WarrantyList({ warranties, onDelete }) {
                 shadow-dark
               `}
             >
-              {/* Status indicator stripe */}
               <div className={`absolute top-0 left-0 w-full h-1 ${statusGradient}`}></div>
               
               <div className="p-5">
@@ -188,7 +179,6 @@ export default function WarrantyList({ warranties, onDelete }) {
         })}
       </div>
 
-      {/* Detail Modal */}
       {selectedWarranty && (
         <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div 
