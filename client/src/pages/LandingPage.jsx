@@ -67,7 +67,7 @@ export default function LandingPage({ isLoggedIn }) {
                 href="#features"
                 className="py-3 px-6 rounded-full border border-borderColor text-white hover:bg-darkBg-700 transition-all text-center"
               >
-                Learn More
+                <ShinyText text="Learn More"/>
               </a>
             </div>
           </div>

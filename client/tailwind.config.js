@@ -9,7 +9,8 @@ export default {
       },
       colors: {
         primary: "#f0f0f0", // Changed to light for better contrast
-        accent: "#00F5FF", // Bringing back green accent
+        accent: "#095fdd", // Bringing back green accent
+        accent2: "#338fe4",
         darkText: "#f3f4f6", // Light text for dark theme
         darkBg: {
           900: "#000000", // Pure black - immersive depth
