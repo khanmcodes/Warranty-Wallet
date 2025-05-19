@@ -24,7 +24,7 @@ export default {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-primary": "linear-gradient(to right, #095fdd, #338fe4)",
-        "gradient-primary2": "radial-gradient(circle, #444444, #1e1e1e)",
+        "gradient-primary2": "radial-gradient(circle, #121212, #0f3252)",
         "gradient-accent": "linear-gradient(to right, #10b981, #059669)",
         "gradient-warning": "linear-gradient(to right, #f59e0b, #d97706)",
         "gradient-error": "linear-gradient(to right, #ef4444, #dc2626)",

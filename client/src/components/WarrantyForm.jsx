@@ -134,33 +134,35 @@ export default function WarrantyForm({ onAdd, onCancel }) {
       )}
       
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="productName" className="block text-sm font-medium text-gray-300 mb-1">
-            Product Name <span className="text-red-400">*</span>
-          </label>
-          <input 
-            id="productName"
-            name="productName" 
-            value={form.productName} 
-            onChange={handleChange} 
-            placeholder="e.g. iPhone 13 Pro" 
-            className="w-full px-3 py-2 bg-darkBg-700 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" 
-            required 
-          />
-        </div>
-        
-        <div>
-          <label htmlFor="brand" className="block text-sm font-medium text-gray-300 mb-1">
-            Brand
-          </label>
-          <input 
-            id="brand"
-            name="brand" 
-            value={form.brand} 
-            onChange={handleChange} 
-            placeholder="e.g. Apple" 
-            className="w-full px-3 py-2 bg-darkBg-700 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" 
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="productName" className="block text-sm font-medium text-gray-300 mb-1">
+              Product Name <span className="text-red-400">*</span>
+            </label>
+            <input
+              id="productName"
+              name="productName"
+              value={form.productName}
+              onChange={handleChange}
+              placeholder="e.g. iPhone 13 Pro"
+              className="w-full px-3 py-2 bg-darkBg-700 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+              required
+            />
+          </div>
+          
+          <div>
+            <label htmlFor="brand" className="block text-sm font-medium text-gray-300 mb-1">
+              Brand
+            </label>
+            <input
+              id="brand"
+              name="brand"
+              value={form.brand}
+              onChange={handleChange}
+              placeholder="e.g. Apple"
+              className="w-full px-3 py-2 bg-darkBg-700 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            />
+          </div>
         </div>
         
         <div>
