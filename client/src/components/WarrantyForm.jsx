@@ -113,7 +113,7 @@ export default function WarrantyForm({ onAdd, onCancel }) {
   return (
     <div className="bg-darkBg-800 bg-opacity-90 backdrop-blur-sm rounded-lg border border-borderColor shadow-dark p-4 md:p-6 w-full max-w-md mx-auto">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">Add New Warranty</h2>
+        <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f0f0f0] to-[#d1d1d1]">Add New Warranty</h2>
         {onCancel && (
           <button 
             onClick={onCancel} 

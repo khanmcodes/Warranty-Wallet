@@ -36,7 +36,7 @@ export default function Signup() {
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
           </svg>
-          Back to home
+          Back
         </Link>
       </div>
       
@@ -46,7 +46,7 @@ export default function Signup() {
         <div className="relative bg-darkBg-800 p-6 sm:p-8 rounded-xl shadow-dark border border-borderColor backdrop-blur-sm">
           <div className="flex flex-col items-center mb-8">
             <img src={logo} alt="Warranty Wallet Logo" className="w-16 h-16 sm:w-20 sm:h-20 object-contain mb-4 drop-shadow-lg" />
-            <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f0f0f0] to-[#d1d1d1]">
               Create Account
             </h1>
             <p className="text-gray-400 mt-2 text-center">

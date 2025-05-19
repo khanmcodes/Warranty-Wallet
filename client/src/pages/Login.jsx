@@ -57,7 +57,7 @@ export default function Login({ setIsLoggedIn }) {
         <div className="relative bg-darkBg-800 p-6 sm:p-8 rounded-xl shadow-dark border border-borderColor backdrop-blur-sm">
           <div className="flex flex-col items-center mb-8">
             <img src={logo} alt="Warranty Wallet Logo" className="w-16 h-16 sm:w-20 sm:h-20 object-contain mb-4 drop-shadow-lg" />
-            <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f0f0f0] to-[#d1d1d1]">
               Welcome Back
             </h1>
             <p className="text-gray-400 mt-2 text-center">
