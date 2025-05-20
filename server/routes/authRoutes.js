@@ -35,8 +35,8 @@ router.get('/google/callback',
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
-    // Send the token in the response body as well
-    res.redirect(`${process.env.FRONTEND_URL}/dashboard?token=${token}`);
+    res.redirect("https://warranty-wallet.vercel.app/dashboard");
+
   }
 );
 
