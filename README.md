@@ -27,6 +27,10 @@ A modern web application for managing and tracking product warranties. Keep all 
   - Express.js
   - MongoDB
   - JWT Authentication
+ 
+- **Deploy:**
+  - Frontend: Vercel
+  - Backend: Render
 
 ## API Documentation
 
