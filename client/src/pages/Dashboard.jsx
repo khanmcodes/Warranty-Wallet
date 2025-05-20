@@ -5,7 +5,8 @@ import WarrantyList from "../components/WarrantyList";
 import Dock from "../components/Dock";
 import { FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/logo.png";
-import Loader from "../components/Loader"; 
+import Loader from "../components/Loader";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Dashboard() {
   const [warranties, setWarranties] = useState([]);
@@ -19,6 +20,21 @@ export default function Dashboard() {
     status: "valid",
   });
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check for token in URL (from Google auth)
+    const params = new URLSearchParams(location.search);
+    const token = params.get('token');
+    
+    if (token) {
+      // Store the token
+      localStorage.setItem('token', token);
+      // Remove token from URL
+      window.history.replaceState({}, document.title, '/dashboard');
+    }
+  }, [location]);
 
   useEffect(() => {
     const fetchUser = async () => {

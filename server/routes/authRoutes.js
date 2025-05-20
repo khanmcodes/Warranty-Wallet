@@ -35,8 +35,8 @@ router.get('/google/callback',
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
-    // Redirect to frontend with success message
-    res.redirect(`${process.env.FRONTEND_URL}/dashboard?message=Successfully logged in with Google`);
+    // Send the token in the response body as well
+    res.redirect(`${process.env.FRONTEND_URL}/dashboard?token=${token}`);
   }
 );
 
