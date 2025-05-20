@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
   },
   verificationToken: {
     type: String,
+  },
+  googleId: {
+    type: String,
+    sparse: true
   }
 }, { timestamps: true });
 

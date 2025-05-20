@@ -4,6 +4,7 @@ const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const authRoutes = require("./routes/authRoutes")
 const warrantyRoutes = require("./routes/warrantyRoutes")
+const passport = require('./config/passport')
 require("dotenv").config()
 
 const app = express()
@@ -11,11 +12,14 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: ["https://warranty-wallet.vercel.app", "http://localhost:5173"],
+    origin: process.env.FRONTEND_URL,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }))
+
+// Initialize Passport
+app.use(passport.initialize())
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("Connected to MongoDB"))

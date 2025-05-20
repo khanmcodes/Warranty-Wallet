@@ -51,6 +51,19 @@ exports.login = async (req, res) => {
   
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) return res.status(400).json({ message: "Invalid password" });
+
+      // Check if email is verified
+      if (!user.verified) {
+        // If not verified, resend verification email
+        const verificationToken = crypto.randomBytes(32).toString('hex');
+        user.verificationToken = verificationToken;
+        await user.save();
+        await sendVerificationEmail(email, verificationToken);
+        
+        return res.status(403).json({ 
+          message: "Please verify your email before logging in. A new verification email has been sent."
+        });
+      }
   
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
@@ -77,6 +90,13 @@ exports.me = async (req, res) => {
   
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       const user = await User.findById(decoded.id).select("-password");
+      if (!user) return res.status(401).json({ message: "User not found" });
+      
+      // Check if email is verified
+      if (!user.verified) {
+        return res.status(403).json({ message: "Please verify your email to continue" });
+      }
+      
       res.json({ user });
     } catch (err) {
       res.status(401).json({ message: "Invalid token" });
