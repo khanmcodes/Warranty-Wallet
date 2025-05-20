@@ -21,10 +21,12 @@ passport.use(
           user = await User.create({
             name: profile.displayName,
             email: profile.emails[0].value,
-            password: '', // Empty password for Google auth users
-            verified: true, // Google accounts are pre-verified
             googleId: profile.id
           });
+        } else if (!user.googleId) {
+          // If user exists but hasn't used Google auth before, link their account
+          user.googleId = profile.id;
+          await user.save();
         }
 
         // Generate JWT token
