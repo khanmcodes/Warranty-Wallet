@@ -1,5 +1,5 @@
 const express = require("express");
-const { signup, login, me, logout, verifyEmail } = require("../controllers/authController");
+const { signup, login, me, logout } = require("../controllers/authController");
 const passport = require('../config/passport');
 
 const router = express.Router();
@@ -9,7 +9,6 @@ router.post("/signup", signup);
 router.post("/login", login);
 router.get("/me", me);
 router.post("/logout", logout);
-router.get("/verify-email/:token", verifyEmail);
 
 // Google authentication routes
 router.get('/google',
