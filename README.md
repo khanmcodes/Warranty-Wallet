@@ -2,6 +2,10 @@
 
 A modern web application for managing and tracking product warranties. Keep all your warranty information in one place and never miss an expiration date.
 
+![image](https://github.com/user-attachments/assets/16b4556b-a64b-4a6d-9b8d-b1f9256ee7ea)
+![image](https://github.com/user-attachments/assets/e11bdd77-5975-4f6a-9ae9-de1936d46d2c)
+
+
 ## Features
 
 - 📊 Dashboard with warranty status overview
