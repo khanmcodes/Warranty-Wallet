@@ -188,9 +188,9 @@ export default function Signup() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-black bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isLoading ? <Loader /> : "Sign up"}
+                {isLoading ? <Loader /> : "Create Account"}
               </button>
             </div>
 
@@ -205,7 +205,7 @@ export default function Signup() {
 
             <div>
               <a
-                href="/api/auth/google"
+                href="https://warranty-wallet.onrender.com/api/auth/google"
                 className="w-full flex justify-center items-center py-3 px-4 border border-borderColor rounded-lg shadow-sm text-sm font-medium text-gray-300 bg-darkBg-700 hover:bg-darkBg-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
               >
                 <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
