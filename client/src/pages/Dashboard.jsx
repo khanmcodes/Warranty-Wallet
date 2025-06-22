@@ -24,19 +24,6 @@ export default function Dashboard() {
   const location = useLocation();
 
   useEffect(() => {
-    // Check for token in URL (from Google auth)
-    const params = new URLSearchParams(location.search);
-    const token = params.get('token');
-    
-    if (token) {
-      // Store the token
-      localStorage.setItem('token', token);
-      // Remove token from URL
-      window.history.replaceState({}, document.title, '/dashboard');
-    }
-  }, [location]);
-
-  useEffect(() => {
     const fetchUser = async () => {
       try {
         const res = await API.get("/auth/me");
