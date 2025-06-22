@@ -2,6 +2,13 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const setCookieOptions = {
+  httpOnly: true,
+  sameSite: "none",
+  secure: true,
+  maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+};
+
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -22,14 +29,11 @@ exports.signup = async (req, res) => {
       expiresIn: "7d",
     });
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      sameSite: "Lax",
-      secure: false,
-    });
+    res.cookie("token", token, setCookieOptions);
 
     res.json({ 
       user: { name: user.name, email: user.email },
+      token,
       message: "Registration successful"
     });
   } catch (err) {
@@ -48,16 +52,11 @@ exports.login = async (req, res) => {
   
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
-      res.cookie("token", token, {
-        httpOnly: true,
-        sameSite: "none",
-        secure: true,
-        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
-      });
+      res.cookie("token", token, setCookieOptions);
   
       res.json({ 
         user: { name: user.name, email: user.email },
-        token // Send token in response for client-side storage
+        token
       });
     } catch (err) {
       res.status(500).json({ message: "Login failed", error: err.message });
@@ -81,9 +80,8 @@ exports.me = async (req, res) => {
 
 exports.logout = async (req, res) => {
     res.clearCookie("token", {
-      httpOnly: true,
-      sameSite: "Lax",
-      secure: false,
+      ...setCookieOptions,
+      maxAge: 0
     });
     res.json({ message: "Logged out successfully" });
 };
